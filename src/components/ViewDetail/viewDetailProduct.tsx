@@ -12,12 +12,7 @@ interface DetailsProps {
 const ViewDetailProduct: FC<DetailsProps> = ({ item, closeModal }) => {
   return (
     <div className=" w-80% lg:w-[48rem] bg-white flex flex-col lg:flex-row rounded-2xl">
-      <Button
-        icon="emojione-monotone:cross-mark"
-        mode="floatButton"
-        onClick={closeModal}
-        classButton="z-30"
-      />
+      <Button mode="floatButton" onClick={closeModal} />
       <div className="flex-1 w-full flex items-center justify-center bg-gray-100 rounded-2xl px-8 hover:scale-150 transition-all z-20">
         <ImageProduct item={item} />
       </div>
@@ -47,12 +42,7 @@ const ViewDetailProduct: FC<DetailsProps> = ({ item, closeModal }) => {
             classContain="!py-1"
             type="number"
           />
-          <Button
-            type="submit"
-            text="Add to cart"
-            mode="fill"
-            classButton="w-full mt-4"
-          />
+          <Button type="submit" mode="fill" />
         </form>
       </div>
     </div>
