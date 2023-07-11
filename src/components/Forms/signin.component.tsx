@@ -34,8 +34,8 @@ const SignIn: FC<SignInProps> = ({ mode, buttonSubmitText }) => {
           event={() => setSecretInput(!secretInput)}
         />
         <div className="flex gap-x-4">
-          {!mode === true && <Button text="Change method" mode="outline" />}
-          <Button text={buttonSubmitText} mode="fill" />
+          {!mode === true && <Button mode="outline">Change Method</Button>}
+          <Button mode="fill">{buttonSubmitText}</Button>
         </div>
       </div>
     </form>

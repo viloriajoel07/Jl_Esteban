@@ -1,6 +1,6 @@
+import { FC, useEffect, useState } from "react";
 import Link from "next/link";
-import { FC, useState } from "react";
-import { Header, SignIn } from "~components";
+import { Button, Header, SignIn } from "~components";
 
 interface AuthProps {
   type?: "login" | "register";
@@ -26,9 +26,16 @@ const Authentication: FC<AuthProps> = ({ type = "login" }) => {
     },
   }[mode ? "login" : "register"];
 
+  useEffect(() => {
+    // Redireccionar a /product después de 1 segundo (1000 ms)
+    window.location.href = "/products";
+  }, []);
+
+  return <></>;
+
   return (
     <div className="h-screen w-full flex flex-col items-center">
-      <Header />
+      <Header setStyle />
 
       <div className="px-10 h-full flex flex-col items-center justify-center w-full md:w-[38rem]">
         <p className="text-xl text-gray-500 mb-4 font-bold">{info.message}</p>
@@ -38,12 +45,12 @@ const Authentication: FC<AuthProps> = ({ type = "login" }) => {
         </div>
         <div className="flex flex-col sm:flex-row gap-x-2 text-lg text-gray-600 mb-4">
           <p>{info.link}</p>
-          <button
+          <Button
             className="text-sky-500 outline-none"
             onClick={() => setMode(!mode)}
           >
             {info.href}
-          </button>
+          </Button>
         </div>
         <SignIn mode={mode} buttonSubmitText={info.textButtonSubmit} />
       </div>

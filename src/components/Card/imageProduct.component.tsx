@@ -7,10 +7,12 @@ interface sectionProps {
 
 const ImageProduct: FC<sectionProps> = ({ item }) => {
   return (
-    <div className="relative bg-gray-100 flex-1 w-full rounded-t-[20px]">
-    <p className="font-bold px-4 py-2">Shope app</p>
-    <Image src={item.image} />
-  </div>
+    <div className="relative bg-gray-100 flex-1 w-full">
+      <Image
+        src={item.image}
+        className="w-full h-full object-cover hover:scale-110 transition-all duration-300 !p-10"
+      />
+    </div>
   );
 };
 

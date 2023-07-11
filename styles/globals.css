@@ -1,8 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Cairo&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
   font-family: "Cairo", sans-serif;
+}
+
+.antont-font {
+  font-family: "Anton", sans-serif;
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid-responsive {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(auto-fit, minmax(100%)) !important;
+  }
 }
