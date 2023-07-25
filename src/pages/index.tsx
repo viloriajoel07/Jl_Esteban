@@ -1,61 +1,62 @@
-import { FC, useEffect, useState } from "react";
-import Link from "next/link";
-import { Button, Header, SignIn } from "~components";
+import {
+  HtmlHTMLAttributes,
+  LegacyRef,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { Header, Card, FloatButton } from "~components";
+import { mostSold } from "../data/Data";
+import Footer from "~components/Footer";
+import { flushSync } from "react-dom";
+import { Layout } from "~components/Layout";
 
-interface AuthProps {
-  type?: "login" | "register";
-}
-
-const Authentication: FC<AuthProps> = ({ type = "login" }) => {
-  const [mode, setMode] = useState<Boolean>(type === "login" ? true : false);
-
-  const info = {
-    login: {
-      message: "Welcome back",
-      title: "Log in",
-      link: "You do not have an account ?",
-      href: "Sign up",
-      textButtonSubmit: "Log in",
-    },
-    register: {
-      message: "Start for free",
-      title: "Create new account",
-      link: "Already a member ?",
-      href: "Log in",
-      textButtonSubmit: "Create account",
-    },
-  }[mode ? "login" : "register"];
-
-  useEffect(() => {
-    // Redireccionar a /product después de 1 segundo (1000 ms)
-    window.location.href = "/products";
-  }, []);
-
-  return <></>;
-
+const MainStart = () => {
   return (
-    <div className="h-screen w-full flex flex-col items-center">
-      <Header setStyle />
-
-      <div className="px-10 h-full flex flex-col items-center justify-center w-full md:w-[38rem]">
-        <p className="text-xl text-gray-500 mb-4 font-bold">{info.message}</p>
-        <div className="text-5xl font-bold flex gap-x-2 mb-5 text-center">
-          <h1 className="">{info.title}</h1>
-          <span className="hidden md:block text-sky-500">.</span>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-x-2 text-lg text-gray-600 mb-4">
-          <p>{info.link}</p>
-          <Button
-            className="text-sky-500 outline-none"
-            onClick={() => setMode(!mode)}
+    <div className="w-full flex justify-center items-center h-screen relative">
+      <div className="flex flex-col justify-center absolute h-screen gap-8 py-8 w-full backdrop-blur-sm bg-zinc-900/40 xl:py-14">
+        <h1 className="font-bold text-center text-4xl md:text-6xl px-6  text-white antont-font drop-shadow-2xl">
+          ESTILOS PARA AVENTURAS AL AIRE LIBRE
+        </h1>
+        <div className="flex justify-center">
+          <button
+            className="bg-white/10 backdrop-blur-lg border-[3px] text-white rounded-xl px-8 py-2"
+            onClick={() => {}}
           >
-            {info.href}
-          </Button>
+            Ver Tendencias
+          </button>
         </div>
-        <SignIn mode={mode} buttonSubmitText={info.textButtonSubmit} />
       </div>
+      <video
+        autoPlay
+        muted
+        loop
+        className="w-full h-full object-cover bg-top delay-100"
+      >
+        <source src="/nike2.mp4" />
+      </video>
     </div>
   );
 };
 
-export default Authentication;
+const Home = () => {
+  const [listMostSold, setMostSold] = useState(mostSold);
+
+  return (
+    <Layout spacingStartHeader={false} sectionFreeSpace={<MainStart />}>
+      <div className="flex flex-col w-full py-10">
+        <h2 className="text-4xl pb-6 font-bold">Tendencia</h2>
+        <div className="grid-responsive w-full">
+          {listMostSold.map((item) => (
+            <a key={item.id} href={`product/${item.id}_mostSold`}>
+              <Card item={item} key={item.id} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default Home;

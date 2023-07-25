@@ -19,10 +19,12 @@ interface CardProps {
 
 const CardGlobal: FC<CardProps> = ({ item, ref }) => {
   return (
-    <div className="relative border border-gray-300 shadow-xl w-full flex flex-col items-center justify-center gap-4 rounded-[20px] overflow-hidden bg-white cursor-pointer">
-      <ImageProduct item={item} />
+    <div className="relative border border-gray-300 min-h-[24rem] shadow-xl w-full flex flex-col items-center justify-center gap-4 rounded-[20px] overflow-hidden bg-white cursor-pointer">
+      <div className="flex justify-center bg-white w-full flex-grow border-b-2">
+        <ImageProduct item={item} />
+      </div>
 
-      <div className="flex-1 w-full px-4 ubuntu flex flex-col">
+      <div className="w-full px-4 flex flex-col">
         <Details item={item} />
       </div>
     </div>

@@ -31,18 +31,18 @@ const Input: FC<InputProps> = ({
 
   return (
     <div
-      className={`bg-gray-100 rounded-xl flex-1 p-1 relative items-center ${classContain} `}
+      className={`bg-black/25 rounded-xl flex-1 relative items-center ${classContain} `}
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
     >
       <div
-        className={`border-2 border-gray-100 px-4 py-2 rounded-xl ${
-          focus && "!border-sky-500"
+        className={`border border-gray-600 px-4 py-2 rounded-lg ${
+          focus && "!border-sky-500 shadow-md shadow-sky-600/30 transition-all"
         }`}
       >
         <label
           htmlFor={id}
-          className={`font-bold text-gray-700 ${focus && "!text-sky-500"}`}
+          className={`font-bold text-gray-300 ${focus && "!text-white"}`}
         >
           {label}
         </label>
@@ -52,7 +52,7 @@ const Input: FC<InputProps> = ({
             id={id}
             name={name}
             placeholder={placeholder}
-            className={`${classInput} bg-transparent w-full outline-none`}
+            className={`${classInput} bg-transparent text-sm text-white w-full outline-none`}
             onClick={() => {}}
             onChange={() => {}}
           />
@@ -64,7 +64,10 @@ const Input: FC<InputProps> = ({
               type="button"
               onClick={event && event}
             >
-              <Icon icon={icon} className="w-6 h-6" />
+              <Icon
+                icon={icon}
+                className={`w-6 h-6 ${focus && "text-sky-600"}`}
+              />
             </button>
           )}
         </div>

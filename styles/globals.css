@@ -1,19 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Cairo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans&family=Zeyada&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
-  font-family: "Cairo", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 .antont-font {
   font-family: "Anton", sans-serif;
 }
 
+.zeyada-font {
+  font-family: "Zeyada", cursive;
+}
+
 .grid-responsive {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 16px;
 }
 

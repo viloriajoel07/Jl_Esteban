@@ -6,3 +6,4 @@ export * from "./Modal";
 export * from "./Card";
 export * from "./ViewDetail";
 export * from "./Footer";
+export * from "./FloatButton";

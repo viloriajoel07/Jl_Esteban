@@ -24,15 +24,15 @@ const Button: FC<ButtonProps> = ({
 }) => {
   const styleOption = {
     default: "",
-    fill: "bg-sky-500 !text-white px-4 py-3 text-gray-400",
+    fill: "bg-gradient-to-r from-blue-700 to-sky-500 !text-white px-4 py-3 text-gray-400",
     outline: "bg-gray-100",
     floatButton:
-      "!w-9 !h-9 border-[3px] border-gray-300 flex items-center justify-center text-center !rounded-full z-20 transition-all",
+      "!w-9 !h-9 border-[2px] border-gray-300 flex items-center justify-center text-center !rounded-full z-20 transition-all",
   }[mode];
 
   return (
     <button
-      className={`${styleOption} ${className} rounded-2xl flex-1 font-bold`}
+      className={`${styleOption} ${className} rounded-lg flex-1 font-bold`}
       type={type}
       {...props}
     >
